@@ -6,13 +6,14 @@ export default function GradientBackground(props) {
     return (
         <Gradient
             gradients={[
-            ['#FFFD00', '#9CA2FF'],
-            ['#FF47F4', '#6DFF5C'],
+                ['#FFFFFF', '#E64C00'],
+                ['#E64C00', '#FFFFFF']
             ]}
             property="background"
             angle="30deg"
             duration="4500"
             className="App-header"
+            gradientType="radial"
         >
             {props.children}
         </Gradient>
