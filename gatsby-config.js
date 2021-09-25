@@ -4,6 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   plugins: [
+    "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-filesystem`,
@@ -45,6 +46,14 @@ module.exports = {
         apiSecret: process.env.CLOUDINARY_API_SECRET,
         resourceType: `image`,
         prefix: `gatsby-source-cloudinary/`
+      }
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: `${__dirname}/src/assets/brainscanlogo.svg`
+        }
       }
     }
   ],
