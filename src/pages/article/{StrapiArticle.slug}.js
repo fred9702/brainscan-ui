@@ -14,21 +14,12 @@ export const query = graphql`
       content
       published_at
       image {
-        localFile {
-          publicURL
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
-          }
-        }
+        url
       }
       author {
         name
         picture {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 30)
-            }
-          }
+          url
         }
       }
     }

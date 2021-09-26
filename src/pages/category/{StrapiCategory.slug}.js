@@ -14,20 +14,12 @@ export const query = graphql`
             name
           }
           image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 660)
-              }
-            }
+            url
           }
           author {
             name
             picture {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 30)
-                }
-              }
+              url
             }
           }
         }
