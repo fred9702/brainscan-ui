@@ -5165,6 +5165,12 @@ function useScrollRestoration(identifier) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var plugins = [{
+  name: 'gatsby-plugin-gatsby-cloud',
+  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-gatsby-cloud/gatsby-ssr */ "./node_modules/gatsby-plugin-gatsby-cloud/gatsby-ssr.js"),
+  options: {
+    "plugins": []
+  }
+}, {
   name: 'gatsby-plugin-react-helmet',
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-react-helmet/gatsby-ssr */ "./node_modules/gatsby-plugin-react-helmet/gatsby-ssr.js"),
   options: {
@@ -6729,6 +6735,79 @@ function stripPrefix(str, prefix = ``) {
 
 /***/ }),
 
+/***/ "./node_modules/gatsby-plugin-gatsby-cloud/gatsby-browser.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/gatsby-plugin-gatsby-cloud/gatsby-browser.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "wrapRootElement": () => (/* binding */ wrapRootElement)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+
+
+
+const ShadowPortal = ({
+  children,
+  identifier
+}) => {
+  const mountNode = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(null);
+  const portalNode = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(null);
+  const shadowNode = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(null);
+  const [, forceUpdate] = react__WEBPACK_IMPORTED_MODULE_0___default().useState();
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(() => {
+    const ownerDocument = mountNode.current.ownerDocument;
+    portalNode.current = ownerDocument.createElement(identifier);
+    shadowNode.current = portalNode.current.attachShadow({
+      mode: `open`
+    });
+    ownerDocument.body.appendChild(portalNode.current);
+    forceUpdate({});
+    return () => {
+      if (portalNode.current && portalNode.current.ownerDocument) {
+        portalNode.current.ownerDocument.body.removeChild(portalNode.current);
+      }
+    };
+  }, []);
+  return shadowNode.current ? /*#__PURE__*/(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.createPortal)(children, shadowNode.current) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    ref: mountNode
+  });
+};
+
+const wrapRootElement = ({
+  element
+}, pluginOptions) => {
+  if (false) {} else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, element);
+  }
+};
+
+/***/ }),
+
+/***/ "./node_modules/gatsby-plugin-gatsby-cloud/gatsby-ssr.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/gatsby-plugin-gatsby-cloud/gatsby-ssr.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.wrapRootElement = void 0;
+
+var _gatsbyBrowser = __webpack_require__(/*! ./gatsby-browser */ "./node_modules/gatsby-plugin-gatsby-cloud/gatsby-browser.js");
+
+exports.wrapRootElement = _gatsbyBrowser.wrapRootElement;
+
+/***/ }),
+
 /***/ "./node_modules/gatsby-plugin-image/dist/gatsby-image.module.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/gatsby-plugin-image/dist/gatsby-image.module.js ***!
@@ -8058,7 +8137,12 @@ function BrainscanNav() {
       color: "black",
       textAlign: "right"
     }
-  }, "Visual Arts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__.default.Link, {
+  }, ' ', "About Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__.default.Link, {
+    style: {
+      color: "black",
+      textAlign: "right"
+    }
+  }, ' ', "Visual Arts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__.default.Link, {
     style: {
       color: "black",
       textAlign: "right"
