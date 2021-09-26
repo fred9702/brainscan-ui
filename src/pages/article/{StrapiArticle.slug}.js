@@ -41,7 +41,7 @@ const Article = ({ data }) => {
               gridArea: "1/1",
             }}
             alt={`Picture for ${article.title} article`}
-            image={article.image.localFile.childImageSharp.gatsbyImageData}
+            image={article.image.url}
             layout="fullWidth"
           />
           <div
@@ -67,9 +67,6 @@ const Article = ({ data }) => {
               <div>
                 {article.author.picture && (
                   <GatsbyImage
-                    image={
-                      article.author.picture.url
-                    }
                     alt={`Picture of ${article.author.name}`}
                     style={{ borderRadius: "50%" }}
                   />

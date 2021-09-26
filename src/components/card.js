@@ -25,9 +25,6 @@ const Card = ({ article }) => {
               <div>
                 {article.node.author.picture && (
                   <GatsbyImage
-                    image={
-                      article.node.author.picture.url
-                    }
                     alt={`Picture of ${article.node.author.name}`}
                     style={{ borderRadius: "50%" }}
                   />
