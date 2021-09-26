@@ -68,8 +68,7 @@ const Article = ({ data }) => {
                 {article.author.picture && (
                   <GatsbyImage
                     image={
-                      article.author.picture.localFile.childImageSharp
-                        .gatsbyImageData
+                      article.author.picture.url
                     }
                     alt={`Picture of ${article.author.name}`}
                     style={{ borderRadius: "50%" }}

@@ -48,9 +48,6 @@ const query = graphql`
           }
           author {
             name
-            picture {
-              url
-            }
           }
         }
       }
