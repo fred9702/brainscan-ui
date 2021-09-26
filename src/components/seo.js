@@ -42,9 +42,7 @@ const SEO = ({ seo = {} }) => {
       );
     }
     if (fullSeo.shareImage) {
-      const imageUrl =
-        (process.env.GATSBY_ROOT_URL || "http://localhost:8000") +
-        fullSeo.shareImage.localFile.publicURL;
+      const imageUrl = fullSeo.shareImage.url;
       tags.push(
         {
           name: "image",
@@ -78,10 +76,10 @@ const SEO = ({ seo = {} }) => {
       title={fullSeo.metaTitle}
       titleTemplate={`%s | ${siteName}`}
       link={[
-        {
-          rel: "icon",
-          href: favicon.publicURL,
-        },
+        // {
+        //   rel: "icon",
+        //   href: favicon.url,
+        // },
         {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css?family=Staatliches",
