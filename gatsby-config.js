@@ -7,6 +7,13 @@ module.exports = {
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-react-helmet",
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.API_URL || "http://localhost:1337",
