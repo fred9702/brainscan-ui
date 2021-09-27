@@ -41,25 +41,7 @@ const SEO = ({ seo = {} }) => {
         }
       );
     }
-    if (fullSeo.shareImage) {
-      const imageUrl =
-        (process.env.GATSBY_ROOT_URL || "http://localhost:8000") +
-        fullSeo.shareImage.localFile.publicURL;
-      tags.push(
-        {
-          name: "image",
-          content: imageUrl,
-        },
-        {
-          property: "og:image",
-          content: imageUrl,
-        },
-        {
-          name: "twitter:image",
-          content: imageUrl,
-        }
-      );
-    }
+
     if (fullSeo.article) {
       tags.push({
         property: "og:type",
@@ -78,10 +60,6 @@ const SEO = ({ seo = {} }) => {
       title={fullSeo.metaTitle}
       titleTemplate={`%s | ${siteName}`}
       link={[
-        {
-          rel: "icon",
-          href: favicon.publicURL,
-        },
         {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css?family=Staatliches",
@@ -130,19 +108,9 @@ const query = graphql`
   query {
     strapiGlobal {
       siteName
-      favicon {
-        localFile {
-          publicURL
-        }
-      }
       defaultSeo {
         metaTitle
         metaDescription
-        shareImage {
-          localFile {
-            publicURL
-          }
-        }
       }
     }
   }

@@ -5183,25 +5183,6 @@ var plugins = [{
     "plugins": []
   }
 }, {
-  name: 'gatsby-plugin-manifest',
-  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-manifest/gatsby-ssr */ "./node_modules/gatsby-plugin-manifest/gatsby-ssr.js"),
-  options: {
-    "plugins": [],
-    "name": "gatsby-starter-default",
-    "short_name": "starter",
-    "start_url": "/",
-    "background_color": "#663399",
-    "theme_color": "#663399",
-    "display": "minimal-ui",
-    "icon": "src/images/favicon.png",
-    "legacy": true,
-    "theme_color_in_head": true,
-    "cache_busting_mode": "query",
-    "crossOrigin": "anonymous",
-    "include_favicon": true,
-    "cacheDigest": "28fa62e8f0df87822482c7d5ad91bed0"
-  }
-}, {
   name: 'gatsby-plugin-offline',
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-offline/gatsby-ssr */ "./node_modules/gatsby-plugin-offline/gatsby-ssr.js"),
   options: {
@@ -7597,220 +7578,6 @@ exports.onRenderBody = onRenderBody;
 
 /***/ }),
 
-/***/ "./node_modules/gatsby-plugin-manifest/common.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/gatsby-plugin-manifest/common.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/gatsby/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
-
-var _path = _interopRequireDefault(__webpack_require__(/*! path */ "path"));
-
-exports.favicons = [{
-  src: "favicon-32x32.png",
-  sizes: "32x32",
-  type: "image/png"
-}]; // default icons for generating icons
-
-exports.defaultIcons = [{
-  src: "icons/icon-48x48.png",
-  sizes: "48x48",
-  type: "image/png"
-}, {
-  src: "icons/icon-72x72.png",
-  sizes: "72x72",
-  type: "image/png"
-}, {
-  src: "icons/icon-96x96.png",
-  sizes: "96x96",
-  type: "image/png"
-}, {
-  src: "icons/icon-144x144.png",
-  sizes: "144x144",
-  type: "image/png"
-}, {
-  src: "icons/icon-192x192.png",
-  sizes: "192x192",
-  type: "image/png"
-}, {
-  src: "icons/icon-256x256.png",
-  sizes: "256x256",
-  type: "image/png"
-}, {
-  src: "icons/icon-384x384.png",
-  sizes: "384x384",
-  type: "image/png"
-}, {
-  src: "icons/icon-512x512.png",
-  sizes: "512x512",
-  type: "image/png"
-}];
-/**
- * @param {string} path The generic path to an icon
- * @param {string} digest The digest of the icon provided in the plugin's options.
- */
-
-exports.addDigestToPath = function (path, digest, method) {
-  if (method === "name") {
-    var parsedPath = _path.default.parse(path);
-
-    return parsedPath.dir + "/" + parsedPath.name + "-" + digest + parsedPath.ext;
-  }
-
-  if (method === "query") {
-    return path + "?v=" + digest;
-  }
-
-  return path;
-};
-
-/***/ }),
-
-/***/ "./node_modules/gatsby-plugin-manifest/gatsby-ssr.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/gatsby-plugin-manifest/gatsby-ssr.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/gatsby/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
-
-var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/gatsby/node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
-
-var React = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
-
-var _gatsby = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-
-var _common = __webpack_require__(/*! ./common.js */ "./node_modules/gatsby-plugin-manifest/common.js");
-
-var _getManifestPathname = _interopRequireDefault(__webpack_require__(/*! ./get-manifest-pathname */ "./node_modules/gatsby-plugin-manifest/get-manifest-pathname.js")); // TODO: remove for v3
-
-
-var withPrefix = _gatsby.withAssetPrefix || _gatsby.withPrefix;
-
-exports.onRenderBody = function (_ref, _ref2) {
-  var setHeadComponents = _ref.setHeadComponents,
-      _ref$pathname = _ref.pathname,
-      pathname = _ref$pathname === void 0 ? "/" : _ref$pathname;
-  var localize = _ref2.localize,
-      legacy = _ref2.legacy,
-      cacheBusting = _ref2.cache_busting_mode,
-      cacheDigest = _ref2.cacheDigest,
-      icon = _ref2.icon,
-      pluginIcons = _ref2.icons,
-      insertFaviconLinkTag = _ref2.include_favicon,
-      insertMetaTag = _ref2.theme_color_in_head,
-      themeColor = _ref2.theme_color,
-      _ref2$crossOrigin = _ref2.crossOrigin,
-      crossOrigin = _ref2$crossOrigin === void 0 ? "anonymous" : _ref2$crossOrigin; // We use this to build a final array to pass as the argument to setHeadComponents at the end of onRenderBody.
-
-  var headComponents = [];
-  var srcIconExists = !!icon;
-  var icons = pluginIcons || _common.defaultIcons;
-  var manifestFileName = (0, _getManifestPathname.default)(pathname, localize); // If icons were generated, also add a favicon link.
-
-  if (srcIconExists) {
-    if (insertFaviconLinkTag) {
-      _common.favicons.forEach(function (favicon) {
-        headComponents.push( /*#__PURE__*/React.createElement("link", {
-          key: "gatsby-plugin-manifest-icon-link-png",
-          rel: "icon",
-          href: withPrefix((0, _common.addDigestToPath)(favicon.src, cacheDigest, cacheBusting)),
-          type: "image/png"
-        }));
-      });
-
-      if (icon !== null && icon !== void 0 && icon.endsWith(".svg")) {
-        headComponents.push( /*#__PURE__*/React.createElement("link", {
-          key: "gatsby-plugin-manifest-icon-link-svg",
-          rel: "icon",
-          href: withPrefix((0, _common.addDigestToPath)("favicon.svg", cacheDigest, cacheBusting)),
-          type: "image/svg+xml"
-        }));
-      }
-    }
-  } // Add manifest link tag.
-
-
-  headComponents.push( /*#__PURE__*/React.createElement("link", {
-    key: "gatsby-plugin-manifest-link",
-    rel: "manifest",
-    href: (0, _gatsby.withPrefix)("/" + manifestFileName),
-    crossOrigin: crossOrigin
-  })); // The user has an option to opt out of the theme_color meta tag being inserted into the head.
-
-  if (themeColor && insertMetaTag) {
-    headComponents.push( /*#__PURE__*/React.createElement("meta", {
-      key: "gatsby-plugin-manifest-meta",
-      name: "theme-color",
-      content: themeColor
-    }));
-  }
-
-  if (legacy) {
-    icons.forEach(function (icon) {
-      headComponents.push( /*#__PURE__*/React.createElement("link", {
-        key: "gatsby-plugin-manifest-apple-touch-icon-" + icon.sizes,
-        rel: "apple-touch-icon",
-        sizes: icon.sizes,
-        href: withPrefix((0, _common.addDigestToPath)(icon.src, cacheDigest, srcIconExists ? cacheBusting : "none"))
-      }));
-    });
-  }
-
-  setHeadComponents(headComponents);
-  return true;
-};
-
-/***/ }),
-
-/***/ "./node_modules/gatsby-plugin-manifest/get-manifest-pathname.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/gatsby-plugin-manifest/get-manifest-pathname.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = void 0;
-/**
- * Get a manifest filename depending on localized pathname
- *
- * @param {string} pathname
- * @param {Array<{start_url: string, lang: string}>} localizedManifests
- * @return string
- */
-
-var _default = function _default(pathname, localizedManifests) {
-  var defaultFilename = "manifest.webmanifest";
-
-  if (!Array.isArray(localizedManifests)) {
-    return defaultFilename;
-  }
-
-  var localizedManifest = localizedManifests.find(function (app) {
-    return pathname.startsWith(app.start_url);
-  });
-
-  if (!localizedManifest) {
-    return defaultFilename;
-  }
-
-  return "manifest_" + localizedManifest.lang + ".webmanifest";
-};
-
-exports.default = _default;
-
-/***/ }),
-
 /***/ "./node_modules/gatsby-plugin-offline/gatsby-ssr.js":
 /*!**********************************************************!*\
   !*** ./node_modules/gatsby-plugin-offline/gatsby-ssr.js ***!
@@ -8168,7 +7935,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _public_page_data_sq_d_4062351786_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/page-data/sq/d/4062351786.json */ "./public/page-data/sq/d/4062351786.json");
+/* harmony import */ var _public_page_data_sq_d_1031803564_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/page-data/sq/d/1031803564.json */ "./public/page-data/sq/d/1031803564.json");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
@@ -8184,7 +7951,7 @@ const SEO = ({
 }) => {
   const {
     strapiGlobal
-  } = _public_page_data_sq_d_4062351786_json__WEBPACK_IMPORTED_MODULE_0__.data;
+  } = _public_page_data_sq_d_1031803564_json__WEBPACK_IMPORTED_MODULE_0__.data;
   const {
     defaultSeo,
     siteName,
@@ -8221,20 +7988,6 @@ const SEO = ({
       });
     }
 
-    if (fullSeo.shareImage) {
-      const imageUrl = (({}).GATSBY_ROOT_URL || "http://localhost:8000") + fullSeo.shareImage.localFile.publicURL;
-      tags.push({
-        name: "image",
-        content: imageUrl
-      }, {
-        property: "og:image",
-        content: imageUrl
-      }, {
-        name: "twitter:image",
-        content: imageUrl
-      });
-    }
-
     if (fullSeo.article) {
       tags.push({
         property: "og:type",
@@ -8254,9 +8007,6 @@ const SEO = ({
     title: fullSeo.metaTitle,
     titleTemplate: `%s | ${siteName}`,
     link: [{
-      rel: "icon",
-      href: favicon.publicURL
-    }, {
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css?family=Staatliches"
     }, {
@@ -8287,7 +8037,7 @@ SEO.defaultProps = {
   image: null,
   article: false
 };
-const query = "4062351786";
+const query = "1031803564";
 
 /***/ }),
 
@@ -49025,6 +48775,17 @@ function canAcceptRef(component) {
 
 /***/ }),
 
+/***/ "./public/page-data/sq/d/1031803564.json":
+/*!***********************************************!*\
+  !*** ./public/page-data/sq/d/1031803564.json ***!
+  \***********************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"data":{"strapiGlobal":{"siteName":"Braincan Mag","defaultSeo":{"metaTitle":"Page","metaDescription":"A blog made with Strapi"}}}}');
+
+/***/ }),
+
 /***/ "./public/page-data/sq/d/181847842.json":
 /*!**********************************************!*\
   !*** ./public/page-data/sq/d/181847842.json ***!
@@ -49032,7 +48793,7 @@ function canAcceptRef(component) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"data":{"strapiHomepage":{"seo":{"metaTitle":"Brainscanmag","metaDescription":"Discover my SEO friendly blog built with Strapi."}}}}');
+module.exports = JSON.parse('{"data":{"strapiHomepage":{"seo":{"metaTitle":"Brainscan Mag ","metaDescription":"We are a collaborative, non-profit zine with a critical voice. \\n\\nWith a particular focus on postcolonial, intersectional and marxist perspectives; each issue, we explore important contemporary themes through articles on current affairs, thought pieces and through showcasing diverse and varied visual art. \\n"}}}}');
 
 /***/ }),
 
@@ -49043,18 +48804,7 @@ module.exports = JSON.parse('{"data":{"strapiHomepage":{"seo":{"metaTitle":"Brai
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"data":{"strapiHomepage":{"hero":{"title":"BRAINSCAN "},"seo":{"metaTitle":"Brainscanmag","metaDescription":"Discover my SEO friendly blog built with Strapi."}},"allStrapiArticle":{"edges":[{"node":{"strapiId":1,"slug":"the-internet-s-own-boy","title":"The internet\'s Own boy","category":{"name":"story"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#180808","images":{"fallback":{"src":"/static/05b3298e7ea2e75108482fe178c5040d/5af6b/the_internet_s_own_boy_afbc34f4eb.jpg","srcSet":"/static/05b3298e7ea2e75108482fe178c5040d/503f5/the_internet_s_own_boy_afbc34f4eb.jpg 200w,\\n/static/05b3298e7ea2e75108482fe178c5040d/d6c95/the_internet_s_own_boy_afbc34f4eb.jpg 400w,\\n/static/05b3298e7ea2e75108482fe178c5040d/5af6b/the_internet_s_own_boy_afbc34f4eb.jpg 800w","sizes":"(min-width: 800px) 800px, 100vw"},"sources":[{"srcSet":"/static/05b3298e7ea2e75108482fe178c5040d/59b5d/the_internet_s_own_boy_afbc34f4eb.webp 200w,\\n/static/05b3298e7ea2e75108482fe178c5040d/697e6/the_internet_s_own_boy_afbc34f4eb.webp 400w,\\n/static/05b3298e7ea2e75108482fe178c5040d/96b3c/the_internet_s_own_boy_afbc34f4eb.webp 800w","type":"image/webp","sizes":"(min-width: 800px) 800px, 100vw"}]},"width":800,"height":500}}}},"author":{"name":"David Doe","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#687878","images":{"fallback":{"src":"/static/7eaa13ea5d4cebb11a851791af62661e/3c559/daviddoe_strapi_io_7d7ef9704a.jpg","srcSet":"/static/7eaa13ea5d4cebb11a851791af62661e/3e20b/daviddoe_strapi_io_7d7ef9704a.jpg 8w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/2fb2b/daviddoe_strapi_io_7d7ef9704a.jpg 15w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/3c559/daviddoe_strapi_io_7d7ef9704a.jpg 30w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/93848/daviddoe_strapi_io_7d7ef9704a.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/7eaa13ea5d4cebb11a851791af62661e/5d252/daviddoe_strapi_io_7d7ef9704a.webp 8w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/f57b3/daviddoe_strapi_io_7d7ef9704a.webp 15w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/bde72/daviddoe_strapi_io_7d7ef9704a.webp 30w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/927d1/daviddoe_strapi_io_7d7ef9704a.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}},{"node":{"strapiId":2,"slug":"what-s-inside-a-black-hole","title":"What\'s inside a Black Hole","category":{"name":"news"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#080808","images":{"fallback":{"src":"/static/4c516f33e6e3298ce7a5e312da05d070/5af6b/what_s_inside_a_black_hole_ff42e30059.jpg","srcSet":"/static/4c516f33e6e3298ce7a5e312da05d070/503f5/what_s_inside_a_black_hole_ff42e30059.jpg 200w,\\n/static/4c516f33e6e3298ce7a5e312da05d070/d6c95/what_s_inside_a_black_hole_ff42e30059.jpg 400w,\\n/static/4c516f33e6e3298ce7a5e312da05d070/5af6b/what_s_inside_a_black_hole_ff42e30059.jpg 800w","sizes":"(min-width: 800px) 800px, 100vw"},"sources":[{"srcSet":"/static/4c516f33e6e3298ce7a5e312da05d070/59b5d/what_s_inside_a_black_hole_ff42e30059.webp 200w,\\n/static/4c516f33e6e3298ce7a5e312da05d070/697e6/what_s_inside_a_black_hole_ff42e30059.webp 400w,\\n/static/4c516f33e6e3298ce7a5e312da05d070/96b3c/what_s_inside_a_black_hole_ff42e30059.webp 800w","type":"image/webp","sizes":"(min-width: 800px) 800px, 100vw"}]},"width":800,"height":500}}}},"author":{"name":"Sarah Baker","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#c8d8f8","images":{"fallback":{"src":"/static/c343569bd35fed297c6aed75aaf6f7b2/3c559/sarahbaker_strapi_io_b38c4589e2.jpg","srcSet":"/static/c343569bd35fed297c6aed75aaf6f7b2/3e20b/sarahbaker_strapi_io_b38c4589e2.jpg 8w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/2fb2b/sarahbaker_strapi_io_b38c4589e2.jpg 15w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/3c559/sarahbaker_strapi_io_b38c4589e2.jpg 30w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/93848/sarahbaker_strapi_io_b38c4589e2.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/c343569bd35fed297c6aed75aaf6f7b2/5d252/sarahbaker_strapi_io_b38c4589e2.webp 8w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/f57b3/sarahbaker_strapi_io_b38c4589e2.webp 15w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/bde72/sarahbaker_strapi_io_b38c4589e2.webp 30w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/927d1/sarahbaker_strapi_io_b38c4589e2.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}},{"node":{"strapiId":3,"slug":"this-shrimp-is-awesome","title":"This shrimp is awesome","category":{"name":"nature"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#080808","images":{"fallback":{"src":"/static/6f0e13bb06edd9d632a5b4ebd296d748/5af6b/this_shrimp_is_awesome_28f43db691.jpg","srcSet":"/static/6f0e13bb06edd9d632a5b4ebd296d748/503f5/this_shrimp_is_awesome_28f43db691.jpg 200w,\\n/static/6f0e13bb06edd9d632a5b4ebd296d748/d6c95/this_shrimp_is_awesome_28f43db691.jpg 400w,\\n/static/6f0e13bb06edd9d632a5b4ebd296d748/5af6b/this_shrimp_is_awesome_28f43db691.jpg 800w","sizes":"(min-width: 800px) 800px, 100vw"},"sources":[{"srcSet":"/static/6f0e13bb06edd9d632a5b4ebd296d748/59b5d/this_shrimp_is_awesome_28f43db691.webp 200w,\\n/static/6f0e13bb06edd9d632a5b4ebd296d748/697e6/this_shrimp_is_awesome_28f43db691.webp 400w,\\n/static/6f0e13bb06edd9d632a5b4ebd296d748/96b3c/this_shrimp_is_awesome_28f43db691.webp 800w","type":"image/webp","sizes":"(min-width: 800px) 800px, 100vw"}]},"width":800,"height":500}}}},"author":{"name":"David Doe","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#687878","images":{"fallback":{"src":"/static/7eaa13ea5d4cebb11a851791af62661e/3c559/daviddoe_strapi_io_7d7ef9704a.jpg","srcSet":"/static/7eaa13ea5d4cebb11a851791af62661e/3e20b/daviddoe_strapi_io_7d7ef9704a.jpg 8w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/2fb2b/daviddoe_strapi_io_7d7ef9704a.jpg 15w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/3c559/daviddoe_strapi_io_7d7ef9704a.jpg 30w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/93848/daviddoe_strapi_io_7d7ef9704a.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/7eaa13ea5d4cebb11a851791af62661e/5d252/daviddoe_strapi_io_7d7ef9704a.webp 8w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/f57b3/daviddoe_strapi_io_7d7ef9704a.webp 15w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/bde72/daviddoe_strapi_io_7d7ef9704a.webp 30w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/927d1/daviddoe_strapi_io_7d7ef9704a.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}},{"node":{"strapiId":4,"slug":"a-bug-is-becoming-a-meme-on-the-internet","title":"A bug is becoming a meme on the internet","category":{"name":"tech"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#080808","images":{"fallback":{"src":"/static/4a768c85a950e2b1212c438ca9e087ae/5af6b/a_bug_is_becoming_a_meme_on_the_internet_9649c9332f.jpg","srcSet":"/static/4a768c85a950e2b1212c438ca9e087ae/503f5/a_bug_is_becoming_a_meme_on_the_internet_9649c9332f.jpg 200w,\\n/static/4a768c85a950e2b1212c438ca9e087ae/d6c95/a_bug_is_becoming_a_meme_on_the_internet_9649c9332f.jpg 400w,\\n/static/4a768c85a950e2b1212c438ca9e087ae/5af6b/a_bug_is_becoming_a_meme_on_the_internet_9649c9332f.jpg 800w,\\n/static/4a768c85a950e2b1212c438ca9e087ae/3d42c/a_bug_is_becoming_a_meme_on_the_internet_9649c9332f.jpg 1600w","sizes":"(min-width: 800px) 800px, 100vw"},"sources":[{"srcSet":"/static/4a768c85a950e2b1212c438ca9e087ae/59b5d/a_bug_is_becoming_a_meme_on_the_internet_9649c9332f.webp 200w,\\n/static/4a768c85a950e2b1212c438ca9e087ae/697e6/a_bug_is_becoming_a_meme_on_the_internet_9649c9332f.webp 400w,\\n/static/4a768c85a950e2b1212c438ca9e087ae/96b3c/a_bug_is_becoming_a_meme_on_the_internet_9649c9332f.webp 800w,\\n/static/4a768c85a950e2b1212c438ca9e087ae/5236b/a_bug_is_becoming_a_meme_on_the_internet_9649c9332f.webp 1600w","type":"image/webp","sizes":"(min-width: 800px) 800px, 100vw"}]},"width":800,"height":500}}}},"author":{"name":"Sarah Baker","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#c8d8f8","images":{"fallback":{"src":"/static/c343569bd35fed297c6aed75aaf6f7b2/3c559/sarahbaker_strapi_io_b38c4589e2.jpg","srcSet":"/static/c343569bd35fed297c6aed75aaf6f7b2/3e20b/sarahbaker_strapi_io_b38c4589e2.jpg 8w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/2fb2b/sarahbaker_strapi_io_b38c4589e2.jpg 15w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/3c559/sarahbaker_strapi_io_b38c4589e2.jpg 30w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/93848/sarahbaker_strapi_io_b38c4589e2.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/c343569bd35fed297c6aed75aaf6f7b2/5d252/sarahbaker_strapi_io_b38c4589e2.webp 8w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/f57b3/sarahbaker_strapi_io_b38c4589e2.webp 15w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/bde72/sarahbaker_strapi_io_b38c4589e2.webp 30w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/927d1/sarahbaker_strapi_io_b38c4589e2.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}},{"node":{"strapiId":5,"slug":"beautiful-picture","title":"Beautiful picture","category":{"name":"nature"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#081818","images":{"fallback":{"src":"/static/03b86a3f0fa157735ff405db49fd51a9/5af6b/beautiful_picture_29ac2854db.jpg","srcSet":"/static/03b86a3f0fa157735ff405db49fd51a9/503f5/beautiful_picture_29ac2854db.jpg 200w,\\n/static/03b86a3f0fa157735ff405db49fd51a9/d6c95/beautiful_picture_29ac2854db.jpg 400w,\\n/static/03b86a3f0fa157735ff405db49fd51a9/5af6b/beautiful_picture_29ac2854db.jpg 800w,\\n/static/03b86a3f0fa157735ff405db49fd51a9/3d42c/beautiful_picture_29ac2854db.jpg 1600w","sizes":"(min-width: 800px) 800px, 100vw"},"sources":[{"srcSet":"/static/03b86a3f0fa157735ff405db49fd51a9/59b5d/beautiful_picture_29ac2854db.webp 200w,\\n/static/03b86a3f0fa157735ff405db49fd51a9/697e6/beautiful_picture_29ac2854db.webp 400w,\\n/static/03b86a3f0fa157735ff405db49fd51a9/96b3c/beautiful_picture_29ac2854db.webp 800w,\\n/static/03b86a3f0fa157735ff405db49fd51a9/5236b/beautiful_picture_29ac2854db.webp 1600w","type":"image/webp","sizes":"(min-width: 800px) 800px, 100vw"}]},"width":800,"height":500}}}},"author":{"name":"Sarah Baker","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#c8d8f8","images":{"fallback":{"src":"/static/c343569bd35fed297c6aed75aaf6f7b2/3c559/sarahbaker_strapi_io_b38c4589e2.jpg","srcSet":"/static/c343569bd35fed297c6aed75aaf6f7b2/3e20b/sarahbaker_strapi_io_b38c4589e2.jpg 8w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/2fb2b/sarahbaker_strapi_io_b38c4589e2.jpg 15w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/3c559/sarahbaker_strapi_io_b38c4589e2.jpg 30w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/93848/sarahbaker_strapi_io_b38c4589e2.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/c343569bd35fed297c6aed75aaf6f7b2/5d252/sarahbaker_strapi_io_b38c4589e2.webp 8w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/f57b3/sarahbaker_strapi_io_b38c4589e2.webp 15w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/bde72/sarahbaker_strapi_io_b38c4589e2.webp 30w,\\n/static/c343569bd35fed297c6aed75aaf6f7b2/927d1/sarahbaker_strapi_io_b38c4589e2.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}},{"node":{"strapiId":6,"slug":"we-love-pizza","title":"We love Pizza","category":{"name":"food"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#080808","images":{"fallback":{"src":"/static/2eabfa55b20f286f31036d84270136a7/5af6b/we_love_pizza_561aa061a7.jpg","srcSet":"/static/2eabfa55b20f286f31036d84270136a7/503f5/we_love_pizza_561aa061a7.jpg 200w,\\n/static/2eabfa55b20f286f31036d84270136a7/d6c95/we_love_pizza_561aa061a7.jpg 400w,\\n/static/2eabfa55b20f286f31036d84270136a7/5af6b/we_love_pizza_561aa061a7.jpg 800w,\\n/static/2eabfa55b20f286f31036d84270136a7/3d42c/we_love_pizza_561aa061a7.jpg 1600w","sizes":"(min-width: 800px) 800px, 100vw"},"sources":[{"srcSet":"/static/2eabfa55b20f286f31036d84270136a7/59b5d/we_love_pizza_561aa061a7.webp 200w,\\n/static/2eabfa55b20f286f31036d84270136a7/697e6/we_love_pizza_561aa061a7.webp 400w,\\n/static/2eabfa55b20f286f31036d84270136a7/96b3c/we_love_pizza_561aa061a7.webp 800w,\\n/static/2eabfa55b20f286f31036d84270136a7/5236b/we_love_pizza_561aa061a7.webp 1600w","type":"image/webp","sizes":"(min-width: 800px) 800px, 100vw"}]},"width":800,"height":500}}}},"author":{"name":"David Doe","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#687878","images":{"fallback":{"src":"/static/7eaa13ea5d4cebb11a851791af62661e/3c559/daviddoe_strapi_io_7d7ef9704a.jpg","srcSet":"/static/7eaa13ea5d4cebb11a851791af62661e/3e20b/daviddoe_strapi_io_7d7ef9704a.jpg 8w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/2fb2b/daviddoe_strapi_io_7d7ef9704a.jpg 15w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/3c559/daviddoe_strapi_io_7d7ef9704a.jpg 30w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/93848/daviddoe_strapi_io_7d7ef9704a.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/7eaa13ea5d4cebb11a851791af62661e/5d252/daviddoe_strapi_io_7d7ef9704a.webp 8w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/f57b3/daviddoe_strapi_io_7d7ef9704a.webp 15w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/bde72/daviddoe_strapi_io_7d7ef9704a.webp 30w,\\n/static/7eaa13ea5d4cebb11a851791af62661e/927d1/daviddoe_strapi_io_7d7ef9704a.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}}]}}}');
-
-/***/ }),
-
-/***/ "./public/page-data/sq/d/4062351786.json":
-/*!***********************************************!*\
-  !*** ./public/page-data/sq/d/4062351786.json ***!
-  \***********************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse('{"data":{"strapiGlobal":{"siteName":"BRAINSCAN","favicon":{"localFile":{"publicURL":"/static/28fa62e8f0df87822482c7d5ad91bed0/favicon_041e54e491.png"}},"defaultSeo":{"metaTitle":"Page","metaDescription":"A blog made with Strapi","shareImage":{"localFile":{"publicURL":"/static/b9e9feda3f8dfb7df9a452c9503f37ac/default_image_78483de311.png"}}}}}}');
+module.exports = JSON.parse('{"data":{"strapiHomepage":{"hero":{"title":"My blog"},"seo":{"metaTitle":"Brainscan Mag ","metaDescription":"We are a collaborative, non-profit zine with a critical voice. \\n\\nWith a particular focus on postcolonial, intersectional and marxist perspectives; each issue, we explore important contemporary themes through articles on current affairs, thought pieces and through showcasing diverse and varied visual art. \\n"}},"allStrapiArticle":{"edges":[{"node":{"strapiId":8,"slug":"acts-of-violence-on-the-landscape-harsha-walia-and-the-fight-against-border-imperialism","title":"Acts of violence on the landscape: Harsha Walia and the fight against border imperialism","category":{"name":"news"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#282888","images":{"fallback":{"src":"/static/c0503eae3660a909b519de10981b864d/48f92/Screenshot_2021_09_08_at_20_45_04_85811e08fd.png","srcSet":"/static/c0503eae3660a909b519de10981b864d/ad686/Screenshot_2021_09_08_at_20_45_04_85811e08fd.png 111w,\\n/static/c0503eae3660a909b519de10981b864d/45616/Screenshot_2021_09_08_at_20_45_04_85811e08fd.png 222w,\\n/static/c0503eae3660a909b519de10981b864d/48f92/Screenshot_2021_09_08_at_20_45_04_85811e08fd.png 443w","sizes":"(min-width: 443px) 443px, 100vw"},"sources":[{"srcSet":"/static/c0503eae3660a909b519de10981b864d/ee2e6/Screenshot_2021_09_08_at_20_45_04_85811e08fd.webp 111w,\\n/static/c0503eae3660a909b519de10981b864d/0ff65/Screenshot_2021_09_08_at_20_45_04_85811e08fd.webp 222w,\\n/static/c0503eae3660a909b519de10981b864d/955c1/Screenshot_2021_09_08_at_20_45_04_85811e08fd.webp 443w","type":"image/webp","sizes":"(min-width: 443px) 443px, 100vw"}]},"width":800,"height":500.2257336343115}}}},"author":{"name":"Grace Graham-Taylor","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#281818","images":{"fallback":{"src":"/static/27a35e0a67d1e87d392ff211dcf9faf6/3c559/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg","srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/3e20b/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 8w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/2fb2b/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 15w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/3c559/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 30w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/93848/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/5d252/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 8w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/f57b3/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 15w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/bde72/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 30w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/927d1/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}},{"node":{"strapiId":7,"slug":"migration-necropolitical-policies-and-da-aro-youth-project","title":"Migration, Necropolitical policies and Da\'aro Youth project","category":{"name":"news"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#281818","images":{"fallback":{"src":"/static/27a35e0a67d1e87d392ff211dcf9faf6/c2cce/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg","srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/b4d00/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 141w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/562f7/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 282w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/c2cce/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 563w","sizes":"(min-width: 563px) 563px, 100vw"},"sources":[{"srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/4dda8/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 141w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/53a11/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 282w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/e13e9/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 563w","type":"image/webp","sizes":"(min-width: 563px) 563px, 100vw"}]},"width":800,"height":500.1776198934281}}}},"author":{"name":"Naomi Yehdego","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#281818","images":{"fallback":{"src":"/static/27a35e0a67d1e87d392ff211dcf9faf6/3c559/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg","srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/3e20b/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 8w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/2fb2b/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 15w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/3c559/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 30w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/93848/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/5d252/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 8w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/f57b3/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 15w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/bde72/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 30w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/927d1/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}}]}}}');
 
 /***/ }),
 
