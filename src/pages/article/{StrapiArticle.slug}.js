@@ -14,22 +14,10 @@ export const query = graphql`
       content
       published_at
       image {
-        localFile {
-          publicURL
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
-          }
-        }
+        url
       }
       author {
         name
-        picture {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 30)
-            }
-          }
-        }
       }
     }
   }
@@ -53,7 +41,7 @@ const Article = ({ data }) => {
               gridArea: "1/1",
             }}
             alt={`Picture for ${article.title} article`}
-            image={article.image.localFile.childImageSharp.gatsbyImageData}
+            image={article.image.url}
             layout="fullWidth"
           />
           <div
@@ -79,10 +67,6 @@ const Article = ({ data }) => {
               <div>
                 {article.author.picture && (
                   <GatsbyImage
-                    image={
-                      article.author.picture.localFile.childImageSharp
-                        .gatsbyImageData
-                    }
                     alt={`Picture of ${article.author.name}`}
                     style={{ borderRadius: "50%" }}
                   />

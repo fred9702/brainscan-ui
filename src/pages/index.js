@@ -44,21 +44,10 @@ const query = graphql`
             name
           }
           image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 800, height: 500)
-              }
-            }
+            url
           }
           author {
             name
-            picture {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 30, height: 30)
-                }
-              }
-            }
           }
         }
       }

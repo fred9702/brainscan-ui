@@ -8,7 +8,7 @@ const Card = ({ article }) => {
       <div className="uk-card uk-card-muted">
         <div className="uk-card-media-top">
           <GatsbyImage
-            image={article.node.image.localFile.childImageSharp.gatsbyImageData}
+            image={article.node.image.url}
             alt={`Hero image`}
           />
         </div>
@@ -25,10 +25,6 @@ const Card = ({ article }) => {
               <div>
                 {article.node.author.picture && (
                   <GatsbyImage
-                    image={
-                      article.node.author.picture.localFile.childImageSharp
-                        .gatsbyImageData
-                    }
                     alt={`Picture of ${article.node.author.name}`}
                     style={{ borderRadius: "50%" }}
                   />
