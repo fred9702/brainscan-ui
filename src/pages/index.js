@@ -1,6 +1,4 @@
 import React from "react";
-import GradientBackground from "../components/gradient-background";
-import BrainscanNav from "../components/navbar";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/layout";
 import ArticlesComponent from "../components/articles";
@@ -10,16 +8,13 @@ const IndexPage = () => {
   const data = useStaticQuery(query);
 
   return (
-    <GradientBackground>
-      <Layout seo={data.strapiHomepage.seo}>
-        <BrainscanNav />
-        <div className="uk-section">
-          <div className="uk-container uk-container-large">
-            <ArticlesComponent articles={data.allStrapiArticle.edges} />
-          </div>
+    <Layout seo={data.strapiHomepage.seo}>
+      <div className="uk-section">
+        <div className="uk-container uk-container-large">
+          <ArticlesComponent articles={data.allStrapiArticle.edges} />
         </div>
-      </Layout>
-    </GradientBackground>
+      </div>
+    </Layout>
   );
 };
 
