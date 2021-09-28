@@ -2,19 +2,23 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/layout";
 import ArticlesComponent from "../components/articles";
+import GradientBackground from "../components/gradient-background";
+
 import "../assets/css/main.css";
 
 const IndexPage = () => {
   const data = useStaticQuery(query);
 
   return (
-    <Layout seo={data.strapiHomepage.seo}>
-      <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <ArticlesComponent articles={data.allStrapiArticle.edges} />
+    <GradientBackground>
+      <Layout seo={data.strapiHomepage.seo}>
+        <div className="uk-section">
+          <div className="uk-container uk-container-large">
+            <ArticlesComponent articles={data.allStrapiArticle.edges} />
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </GradientBackground>
   );
 };
 

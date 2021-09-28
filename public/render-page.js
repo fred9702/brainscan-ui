@@ -8025,9 +8025,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
 /* harmony import */ var _seo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./seo */ "./src/components/seo.js");
-/* harmony import */ var _components_gradient_background__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/gradient-background */ "./src/components/gradient-background.js");
-/* harmony import */ var _components_navbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/navbar */ "./src/components/navbar.js");
-
+/* harmony import */ var _components_navbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/navbar */ "./src/components/navbar.js");
 
 
 
@@ -8042,7 +8040,7 @@ const Layout = ({
   query: "181847842",
   render: data => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_seo__WEBPACK_IMPORTED_MODULE_4__.default, {
     seo: seo
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_gradient_background__WEBPACK_IMPORTED_MODULE_5__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_navbar__WEBPACK_IMPORTED_MODULE_6__.default, null), children))),
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_navbar__WEBPACK_IMPORTED_MODULE_5__.default, null), children)),
   data: _public_page_data_sq_d_181847842_json__WEBPACK_IMPORTED_MODULE_0__
 });
 
@@ -8066,14 +8064,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/Navbar */ "./node_modules/react-bootstrap/esm/Navbar.js");
-/* harmony import */ var react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Nav */ "./node_modules/react-bootstrap/esm/Nav.js");
-/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Navbar */ "./node_modules/react-bootstrap/esm/Navbar.js");
+/* harmony import */ var react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Nav */ "./node_modules/react-bootstrap/esm/Nav.js");
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
 /* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
 /* harmony import */ var _assets_brainscanlogo_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/brainscanlogo.svg */ "./src/assets/brainscanlogo.svg");
 /* harmony import */ var _assets_brainscanlogo_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_brainscanlogo_svg__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _assets_css_main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/css/main.css */ "./src/assets/css/main.css");
 /* harmony import */ var _assets_css_main_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_css_main_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _assets_css_navbar_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/css/navbar.css */ "./src/assets/css/navbar.css");
+/* harmony import */ var _assets_css_navbar_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_css_navbar_css__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -8082,58 +8083,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function BrainscanNav() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_4__.default, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_5__.default, {
     bg: "rgba(255, 165, 0, 0.73)",
     fixed: "top",
     expand: "true",
     variant: "dark"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_5__.default, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__.default, {
     style: {
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_4__.default.Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_assets_brainscanlogo_svg__WEBPACK_IMPORTED_MODULE_2___default()), {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_5__.default.Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_assets_brainscanlogo_svg__WEBPACK_IMPORTED_MODULE_2___default()), {
     width: "50%",
     height: "50%"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_6__.default, {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_7__.default, {
     className: "me-auto",
     style: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "flex-end",
-      marginRight: "2.5%"
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_6__.default.Link, {
-    style: {
+      marginRight: "2.5%",
       textAlign: "right"
     }
-  }, ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    style: {
-      color: "black"
-    },
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/about-us"
-  }, "About Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_6__.default.Link, {
-    style: {
-      textAlign: "right"
-    }
-  }, ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    style: {
-      color: "black"
-    },
-    to: "/visual-arts"
-  }, "Visual Arts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_6__.default.Link, {
-    style: {
-      color: "black",
-      textAlign: "right"
-    }
-  }, ' ', "Thought Pieces"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_6__.default.Link, {
-    style: {
-      color: "black",
-      textAlign: "right"
-    }
-  }, ' ', "Activism", ' '))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_7__.default.Link, null, ' ', "About Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_7__.default.Link, null, ' ', "Visual Arts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_7__.default.Link, null, ' ', "Thought Pieces"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_7__.default.Link, null, ' ', "Activism", ' '))));
 }
 
 /***/ }),
@@ -8299,10 +8277,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _public_page_data_sq_d_1605227917_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/page-data/sq/d/1605227917.json */ "./public/page-data/sq/d/1605227917.json");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
 /* harmony import */ var _assets_brainscanlogo_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/brainscanlogo.svg */ "./src/assets/brainscanlogo.svg");
 /* harmony import */ var _assets_brainscanlogo_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_brainscanlogo_svg__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/layout */ "./src/components/layout.js");
+/* harmony import */ var _components_gradient_background__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/gradient-background */ "./src/components/gradient-background.js");
 
 
 
@@ -8311,11 +8290,11 @@ __webpack_require__.r(__webpack_exports__);
 
 function AboutUs() {
   const data = _public_page_data_sq_d_1605227917_json__WEBPACK_IMPORTED_MODULE_0__.data;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_layout__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_gradient_background__WEBPACK_IMPORTED_MODULE_4__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_layout__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "uk-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "uk-container uk-container-large"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_4__.default, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_5__.default, {
     style: {
       width: '100%',
       display: 'flex',
@@ -8332,7 +8311,7 @@ function AboutUs() {
       width: '35%',
       marginTop: '1em'
     }
-  }, data.strapiHomepage.seo.metaDescription)))));
+  }, data.strapiHomepage.seo.metaDescription))))));
 }
 ;
 const query = "1605227917";
@@ -8450,8 +8429,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/layout */ "./src/components/layout.js");
 /* harmony import */ var _components_articles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/articles */ "./src/components/articles.js");
-/* harmony import */ var _assets_css_main_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/css/main.css */ "./src/assets/css/main.css");
-/* harmony import */ var _assets_css_main_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_css_main_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_gradient_background__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/gradient-background */ "./src/components/gradient-background.js");
+/* harmony import */ var _assets_css_main_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/css/main.css */ "./src/assets/css/main.css");
+/* harmony import */ var _assets_css_main_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_css_main_css__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -8460,7 +8441,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const IndexPage = () => {
   const data = _public_page_data_sq_d_2556496149_json__WEBPACK_IMPORTED_MODULE_0__.data;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_layout__WEBPACK_IMPORTED_MODULE_2__.default, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_gradient_background__WEBPACK_IMPORTED_MODULE_4__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_layout__WEBPACK_IMPORTED_MODULE_2__.default, {
     seo: data.strapiHomepage.seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "uk-section"
@@ -8468,7 +8449,7 @@ const IndexPage = () => {
     className: "uk-container uk-container-large"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_articles__WEBPACK_IMPORTED_MODULE_3__.default, {
     articles: data.allStrapiArticle.edges
-  }))));
+  })))));
 };
 
 const query = "2556496149";
@@ -36932,6 +36913,16 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*!*********************************!*\
   !*** ./src/assets/css/main.css ***!
   \*********************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./src/assets/css/navbar.css":
+/*!***********************************!*\
+  !*** ./src/assets/css/navbar.css ***!
+  \***********************************/
 /***/ (() => {
 
 
@@ -78774,7 +78765,7 @@ module.exports = JSON.parse('{"data":{"strapiHomepage":{"seo":{"metaTitle":"Brai
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"data":{"strapiHomepage":{"hero":{"title":"My blog"},"seo":{"metaTitle":"Brainscan Mag ","metaDescription":"We are a collaborative, non-profit zine with a critical voice. \\n\\nWith a particular focus on postcolonial, intersectional and marxist perspectives; each issue, we explore important contemporary themes through articles on current affairs, thought pieces and through showcasing diverse and varied visual art. \\n"}},"allStrapiArticle":{"edges":[{"node":{"strapiId":8,"slug":"acts-of-violence-on-the-landscape-harsha-walia-and-the-fight-against-border-imperialism","title":"Acts of violence on the landscape: Harsha Walia and the fight against border imperialism","category":{"name":"news"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#f8f8f8","images":{"fallback":{"src":"/static/df282accaec3e95e37cb2895cdcbf7cb/8d507/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.jpg","srcSet":"/static/df282accaec3e95e37cb2895cdcbf7cb/2a553/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.jpg 122w,\\n/static/df282accaec3e95e37cb2895cdcbf7cb/93d55/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.jpg 243w,\\n/static/df282accaec3e95e37cb2895cdcbf7cb/8d507/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.jpg 486w","sizes":"(min-width: 486px) 486px, 100vw"},"sources":[{"srcSet":"/static/df282accaec3e95e37cb2895cdcbf7cb/477e5/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.webp 122w,\\n/static/df282accaec3e95e37cb2895cdcbf7cb/024ff/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.webp 243w,\\n/static/df282accaec3e95e37cb2895cdcbf7cb/48a68/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.webp 486w","type":"image/webp","sizes":"(min-width: 486px) 486px, 100vw"}]},"width":800,"height":500.4115226337449}}}},"author":{"name":"Grace Graham-Taylor","picture":null}}},{"node":{"strapiId":7,"slug":"migration-necropolitical-policies-and-da-aro-youth-project","title":"Migration, Necropolitical policies and Da\'aro Youth project","category":{"name":"news"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#281818","images":{"fallback":{"src":"/static/27a35e0a67d1e87d392ff211dcf9faf6/c2cce/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg","srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/b4d00/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 141w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/562f7/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 282w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/c2cce/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 563w","sizes":"(min-width: 563px) 563px, 100vw"},"sources":[{"srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/4dda8/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 141w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/53a11/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 282w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/e13e9/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 563w","type":"image/webp","sizes":"(min-width: 563px) 563px, 100vw"}]},"width":800,"height":500.1776198934281}}}},"author":{"name":"Naomi Yehdego","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#281818","images":{"fallback":{"src":"/static/27a35e0a67d1e87d392ff211dcf9faf6/3c559/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg","srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/3e20b/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 8w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/2fb2b/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 15w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/3c559/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 30w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/93848/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/5d252/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 8w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/f57b3/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 15w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/bde72/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 30w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/927d1/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}}]}}}');
+module.exports = JSON.parse('{"data":{"strapiHomepage":{"hero":{"title":"My blog"},"seo":{"metaTitle":"Brainscan Mag ","metaDescription":"We are a collaborative, non-profit zine with a critical voice. \\n\\nWith a particular focus on postcolonial, intersectional and marxist perspectives; each issue, we explore important contemporary themes through articles on current affairs, thought pieces and through showcasing diverse and varied visual art. \\n"}},"allStrapiArticle":{"edges":[{"node":{"strapiId":8,"slug":"acts-of-violence-on-the-landscape-harsha-walia-and-the-fight-against-border-imperialism","title":"Acts of violence on the landscape: Harsha Walia and the fight against border imperialism","category":{"name":"news"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#f8f8f8","images":{"fallback":{"src":"/static/df282accaec3e95e37cb2895cdcbf7cb/8d507/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.jpg","srcSet":"/static/df282accaec3e95e37cb2895cdcbf7cb/2a553/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.jpg 122w,\\n/static/df282accaec3e95e37cb2895cdcbf7cb/93d55/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.jpg 243w,\\n/static/df282accaec3e95e37cb2895cdcbf7cb/8d507/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.jpg 486w","sizes":"(min-width: 486px) 486px, 100vw"},"sources":[{"srcSet":"/static/df282accaec3e95e37cb2895cdcbf7cb/477e5/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.webp 122w,\\n/static/df282accaec3e95e37cb2895cdcbf7cb/024ff/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.webp 243w,\\n/static/df282accaec3e95e37cb2895cdcbf7cb/48a68/C847_F88_F_3_BA_7_4_AC_0_87_BC_ED_65_C2_EB_8066_1_201_a_738190c3ff.webp 486w","type":"image/webp","sizes":"(min-width: 486px) 486px, 100vw"}]},"width":800,"height":500.4115226337449}}}},"author":{"name":"Grace Graham-Taylor","picture":null}}},{"node":{"strapiId":7,"slug":"migration-necropolitical-policies-and-da-aro-youth-project","title":"Migration, Necropolitical policies and Da\'aro Youth project","category":{"name":"news"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#281818","images":{"fallback":{"src":"/static/27a35e0a67d1e87d392ff211dcf9faf6/c2cce/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg","srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/b4d00/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 141w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/562f7/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 282w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/c2cce/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 563w","sizes":"(min-width: 563px) 563px, 100vw"},"sources":[{"srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/4dda8/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 141w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/53a11/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 282w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/e13e9/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 563w","type":"image/webp","sizes":"(min-width: 563px) 563px, 100vw"}]},"width":800,"height":500.1776198934281}}}},"author":{"name":"Naomi Yehdego","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#281818","images":{"fallback":{"src":"/static/27a35e0a67d1e87d392ff211dcf9faf6/3c559/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg","srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/3e20b/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 8w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/2fb2b/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 15w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/3c559/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 30w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/93848/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/27a35e0a67d1e87d392ff211dcf9faf6/5d252/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 8w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/f57b3/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 15w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/bde72/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 30w,\\n/static/27a35e0a67d1e87d392ff211dcf9faf6/927d1/medium_86c76cb1_cfe8_42f8_9757_124d90289900_0c91d17de7_0f5fd0bf85.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}},{"node":{"strapiId":9,"slug":"artist-profile-ayu-erana","title":"Artist Profile: Ayu Erana","category":{"name":"arts"},"image":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#a8d8d8","images":{"fallback":{"src":"/static/66580ff5c77c724bac32d38a052d8f48/5af6b/AYU_piece_cc16ca9a27.jpg","srcSet":"/static/66580ff5c77c724bac32d38a052d8f48/503f5/AYU_piece_cc16ca9a27.jpg 200w,\\n/static/66580ff5c77c724bac32d38a052d8f48/d6c95/AYU_piece_cc16ca9a27.jpg 400w,\\n/static/66580ff5c77c724bac32d38a052d8f48/5af6b/AYU_piece_cc16ca9a27.jpg 800w,\\n/static/66580ff5c77c724bac32d38a052d8f48/3d42c/AYU_piece_cc16ca9a27.jpg 1600w","sizes":"(min-width: 800px) 800px, 100vw"},"sources":[{"srcSet":"/static/66580ff5c77c724bac32d38a052d8f48/59b5d/AYU_piece_cc16ca9a27.webp 200w,\\n/static/66580ff5c77c724bac32d38a052d8f48/697e6/AYU_piece_cc16ca9a27.webp 400w,\\n/static/66580ff5c77c724bac32d38a052d8f48/96b3c/AYU_piece_cc16ca9a27.webp 800w,\\n/static/66580ff5c77c724bac32d38a052d8f48/5236b/AYU_piece_cc16ca9a27.webp 1600w","type":"image/webp","sizes":"(min-width: 800px) 800px, 100vw"}]},"width":800,"height":500}}}},"author":{"name":"Ayu Erana ","picture":{"localFile":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#d8b888","images":{"fallback":{"src":"/static/1017c20341c468c17224fc77c6ab7ce9/3c559/IMG_0465_56c875eca0.jpg","srcSet":"/static/1017c20341c468c17224fc77c6ab7ce9/3e20b/IMG_0465_56c875eca0.jpg 8w,\\n/static/1017c20341c468c17224fc77c6ab7ce9/2fb2b/IMG_0465_56c875eca0.jpg 15w,\\n/static/1017c20341c468c17224fc77c6ab7ce9/3c559/IMG_0465_56c875eca0.jpg 30w,\\n/static/1017c20341c468c17224fc77c6ab7ce9/93848/IMG_0465_56c875eca0.jpg 60w","sizes":"(min-width: 30px) 30px, 100vw"},"sources":[{"srcSet":"/static/1017c20341c468c17224fc77c6ab7ce9/5d252/IMG_0465_56c875eca0.webp 8w,\\n/static/1017c20341c468c17224fc77c6ab7ce9/f57b3/IMG_0465_56c875eca0.webp 15w,\\n/static/1017c20341c468c17224fc77c6ab7ce9/bde72/IMG_0465_56c875eca0.webp 30w,\\n/static/1017c20341c468c17224fc77c6ab7ce9/927d1/IMG_0465_56c875eca0.webp 60w","type":"image/webp","sizes":"(min-width: 30px) 30px, 100vw"}]},"width":30,"height":30}}}}}}}]}}}');
 
 /***/ }),
 

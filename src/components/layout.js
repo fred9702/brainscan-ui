@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import Seo from "./seo";
-import GradientBackground from "../components/gradient-background";
 import BrainscanNav from "../components/navbar";
 
 
@@ -22,13 +21,10 @@ const Layout = ({ children, seo }) => (
     render={(data) => (
       <>
         <Seo seo={seo} />
-        <GradientBackground>
           <main>
             <BrainscanNav />
             {children}
             </main>
-        </GradientBackground>
-
       </>
     )}
   />
